@@ -23,6 +23,7 @@ import {
   unicorn,
   vue,
 } from '../src/eslint/index.js'
+import path from 'node:path'
 
 const configs = await combineFlatConfig(
   { plugins: { '': { rules: Object.fromEntries(builtinRules.entries()) } } },
@@ -65,8 +66,8 @@ dts += `
 export type ConfigNames = ${configNames.map((c) => `'${c}'`).join(' | ')}
 `
 
-await fs.writeFile('src/@types/generated-types.ts', dts)
-
+const targetPath = path.join(process.cwd(), 'src/@types/generated-types.ts')
+await fs.writeFile(targetPath, dts, { encoding: 'utf8' })
 const ruleCount = configs.reduce((acc, c) => acc + Object.keys(c.rules || {}).length, 0)
 
 console.log(`${ruleCount} Rules types generated successfully in \`src/eslint/generated-types.d.ts\``)
