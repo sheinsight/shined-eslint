@@ -22,9 +22,9 @@
     "url": "git@github.com:sheinsight/styled-eslint.git"
   },
   "scripts": {
-    "dev": "tsup --watch",
-    "prebuild": "esno ./scripts/gen-eslint-rule-type.ts",
-    "build": "tsup",
+    "dev": "pnpm build:dts && tsup --watch",
+    "build:dts": "esno ./scripts/gen-eslint-rule-type.ts",
+    "build": "pnpm build:dts && tsup",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",
