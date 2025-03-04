@@ -174,17 +174,20 @@ export function styled(
     )
   }
 
-  let projectName = '[本项目]'
+  // let projectName = '[本项目]'
 
-  try {
-    const pname = JSON.parse(fs.readFileSync('package.json', 'utf8'))?.name
-    projectName += ` ${(pname || '请配置 package.json#name').replace('/', '_')}`
-  } catch {
-    // ignored
-  }
+  // try {
+  //   const pname = JSON.parse(fs.readFileSync('package.json', 'utf8'))?.name
+  //   projectName += ` ${(pname || '请配置 package.json#name').replace('/', '_')}`
+  // } catch {
+  //   // ignored
+  // }
 
   // 设置项目范围内的自定义的规则，可以覆盖强制开启的规则
-  composer.append(extraConfigs.map((e) => ({ ...e, name: `${projectName}/${e.name || 'unknown'}` })))
+  // composer.append(extraConfigs.map((e) => ({ ...e, name: `${projectName}/${e.name || 'unknown'}` })))
+
+  // 部分团队需要再次封装，以便于自定义规则
+  composer.append(extraConfigs.map((e) => ({ ...e, name: e.name || 'Unknown' })))
 
   // 设置 Prettier 相关规则，用于禁用 ESLint 中与 Prettier 的冲突规则
   if (enablePrettier) {
