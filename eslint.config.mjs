@@ -1,6 +1,6 @@
-import styledESLint from '@shined/styled-eslint'
+import shinedESLint from '@shined/styled-eslint'
 
-export default styledESLint(
+export default shinedESLint(
   // styled eslint 配置
   {
     recommended: true,

@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
-import fs from 'node:fs'
 import { DEFAULT_GLOBALS, DEFAULT_GLOBALS_NODE } from './utils.js'
 import { FlatConfigComposer } from 'eslint-flat-config-utils'
 
@@ -23,7 +22,11 @@ import type { ConfigOptionsReact } from './configs/react.js'
 import type { ConfigOptionsTypeScript } from './configs/typescript.js'
 import type * as TYPES from './types.js'
 
-export interface LegoStyledOptions extends TYPES.OptionsIgnores, TYPES.OptionsGlobals, TYPES.OptionsJSX {
+export interface ShinedESLintOptions
+  extends TYPES.OptionsIgnores,
+    TYPES.OptionsGlobals,
+    TYPES.OptionsJSX,
+    TYPES.OptionsRecommended {
   /**
    * 是否启用 TypeScript，用于支持 TypeScript 解析和语法，启用后，部分规则会自动切换到 TypeScript 版本
    *
@@ -61,14 +64,6 @@ export interface LegoStyledOptions extends TYPES.OptionsIgnores, TYPES.OptionsGl
    */
   vue?: boolean | Pick<TYPES.OptionsVue, 'version'>
   /**
-   * 是否启用各个预设的所有推荐配置，默认开启，如果关闭则只会开启内部规范要求强制开启的规则。
-   *
-   * 老项目短期内难以迁移或整改的可以关闭，如果对自己的项目要求严格或者是新起的项目，则强烈推荐开启。
-   *
-   * @default true
-   */
-  recommended?: boolean
-  /**
    * 额外开启的预设插件
    *
    * 用于启用 Styled 内置但没有默认开启的 ESLint 插件，如 promise、regexp 等
@@ -79,12 +74,12 @@ export interface LegoStyledOptions extends TYPES.OptionsIgnores, TYPES.OptionsGl
 }
 
 /**
- * 创建 LEGO Styled 基础配置，对齐内部相关前端规范，内置支持 JS/TS/JSX/TSX，也支持 Node.js/Browser 等不同环境，可以通过传入配置动态切换
+ * 创建 Shined ESLint 基础配置，对齐内部相关前端规范，内置支持 JS/TS/JSX/TSX，也支持 Node.js/Browser 等不同环境，可以通过传入配置动态切换
  *
  * @see TODO: 附上内部的规范链接
  */
 export function styled(
-  options: LegoStyledOptions = {},
+  options: ShinedESLintOptions = {},
   ...extraConfigs: TYPES.FlatConfigItem[]
 ): FlatConfigComposer<TYPES.FlatConfigItem, TYPES.GenConfigNames> {
   const {
