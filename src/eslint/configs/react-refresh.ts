@@ -11,7 +11,7 @@ export async function reactRefresh(options: OptionsRecommended = {}): Promise<Fl
 
   const config: FlatConfigItem[] = [
     {
-      name: '@styled/react-refresh/setup',
+      name: '@shined-eslint/react-refresh/setup',
       plugins: {
         'react-refresh': reactRefreshPlugin,
       },
@@ -20,7 +20,7 @@ export async function reactRefresh(options: OptionsRecommended = {}): Promise<Fl
 
   if (recommended) {
     config.push({
-      name: '@styled/react-refresh/recommended',
+      name: '@shined-eslint/react-refresh/recommended',
       rules: reactRefreshPlugin.configs.recommended.rules,
     })
   }

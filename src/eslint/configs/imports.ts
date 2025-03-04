@@ -15,7 +15,7 @@ export function imports(options: OptionsRecommended = {}): FlatConfigItem[] {
 
   const config: FlatConfigItem[] = [
     {
-      name: '@styled/imports/setup',
+      name: '@shined-eslint/imports/setup',
       plugins: {
         'import-x': importX,
       },
@@ -24,7 +24,7 @@ export function imports(options: OptionsRecommended = {}): FlatConfigItem[] {
 
   if (recommended) {
     config.push({
-      name: '@styled/imports/recommended',
+      name: '@shined-eslint/imports/recommended',
       rules: rules,
     })
   }

@@ -12,7 +12,7 @@ export async function prettier(): Promise<FlatConfigItem[]> {
 
   return [
     {
-      name: '@styled/prettier/disable-conflicts',
+      name: '@shined-eslint/prettier/disable-conflicts',
       rules: prettierConfig.rules,
     },
   ]

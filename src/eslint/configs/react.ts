@@ -33,7 +33,7 @@ export async function react(options: ConfigOptionsReact = {}): Promise<FlatConfi
 
   const config: FlatConfigItem[] = [
     {
-      name: '@styled/react/setup',
+      name: '@shined-eslint/react/setup',
       plugins: {
         react: reactPlugin,
         'react-hooks': reactHooksPlugin,
@@ -48,7 +48,7 @@ export async function react(options: ConfigOptionsReact = {}): Promise<FlatConfi
 
   if (recommended) {
     config.push({
-      name: '@styled/react/recommended',
+      name: '@shined-eslint/react/recommended',
       rules: {
         ...reactRules,
         ...reactHooksRules,

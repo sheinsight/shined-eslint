@@ -10,7 +10,7 @@ export async function promise(options: OptionsRecommended = {}): Promise<FlatCon
 
   const config: FlatConfigItem[] = [
     {
-      name: '@styled/promise/setup',
+      name: '@shined-eslint/promise/setup',
       plugins: {
         promise: promisePlugin,
       },
@@ -19,7 +19,7 @@ export async function promise(options: OptionsRecommended = {}): Promise<FlatCon
 
   if (recommended) {
     config.push({
-      name: '@styled/promise/recommended',
+      name: '@shined-eslint/promise/recommended',
       rules: promisePlugin.configs.recommended.rules,
     })
   }

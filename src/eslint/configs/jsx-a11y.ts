@@ -9,7 +9,7 @@ export async function jsxA11y(options: OptionsRecommended = {}): Promise<FlatCon
 
   const config: FlatConfigItem[] = [
     {
-      name: '@styled/jsx-a11y/setup',
+      name: '@shined-eslint/jsx-a11y/setup',
       plugins: {
         'jsx-a11y': jsxA11yPlugin,
       },
@@ -18,7 +18,7 @@ export async function jsxA11y(options: OptionsRecommended = {}): Promise<FlatCon
 
   if (recommended) {
     config.push({
-      name: '@styled/jsx-a11y/recommended',
+      name: '@shined-eslint/jsx-a11y/recommended',
       rules: jsxA11yPlugin.configs.recommended.rules,
     })
   }

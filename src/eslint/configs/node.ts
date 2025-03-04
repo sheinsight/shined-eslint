@@ -59,7 +59,7 @@ export async function node(options: ConfigOptionsNode = {}): Promise<FlatConfigI
 
   const config: FlatConfigItem[] = [
     {
-      name: '@styled/node/setup',
+      name: '@shined-eslint/node/setup',
       files,
       plugins: {
         n: nodePlugin,
@@ -78,7 +78,7 @@ export async function node(options: ConfigOptionsNode = {}): Promise<FlatConfigI
 
   if (recommended) {
     config.push({
-      name: '@styled/node/recommended',
+      name: '@shined-eslint/node/recommended',
       files,
       rules: rules,
     })

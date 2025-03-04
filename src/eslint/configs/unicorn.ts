@@ -9,7 +9,7 @@ export function unicorn(options: OptionsRecommended = {}): FlatConfigItem[] {
 
   const config: FlatConfigItem[] = [
     {
-      name: '@styled/unicorn/setup',
+      name: '@shined-eslint/unicorn/setup',
       plugins: {
         unicorn: unicornPlugin,
       },
@@ -18,7 +18,7 @@ export function unicorn(options: OptionsRecommended = {}): FlatConfigItem[] {
 
   if (recommended) {
     config.push({
-      name: '@styled/unicorn/recommended',
+      name: '@shined-eslint/unicorn/recommended',
       rules: unicornPlugin.configs['flat/recommended'].rules,
     })
   }

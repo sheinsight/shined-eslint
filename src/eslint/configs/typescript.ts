@@ -45,13 +45,13 @@ export function typescript(options: ConfigOptionsTypeScript = {}): TYPES.FlatCon
 
   const config: TYPES.FlatConfigItem[] = [
     {
-      name: '@styled/typescript/setup',
+      name: '@shined-eslint/typescript/setup',
       plugins: {
         '@typescript-eslint': ts.plugin,
       },
     },
     {
-      name: '@styled/typescript/parser',
+      name: '@shined-eslint/typescript/parser',
       files,
       languageOptions: {
         parser: ts.parser as never,
@@ -71,7 +71,7 @@ export function typescript(options: ConfigOptionsTypeScript = {}): TYPES.FlatCon
       },
     },
     {
-      name: '@styled/typescript/disable-conflicts',
+      name: '@shined-eslint/typescript/disable-conflicts',
       files,
       // disable eslint built-in rules that conflict with TypeScript
       rules: conflictRules,
@@ -80,7 +80,7 @@ export function typescript(options: ConfigOptionsTypeScript = {}): TYPES.FlatCon
 
   if (recommended) {
     config.push({
-      name: '@styled/typescript/recommended',
+      name: '@shined-eslint/typescript/recommended',
       files,
       rules: recommendedRules,
     })

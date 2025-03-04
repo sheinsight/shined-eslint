@@ -17,7 +17,7 @@ export function javascript(options: ConfigOptionsJavascript = {}): FlatConfigIte
 
   const config: FlatConfigItem[] = [
     {
-      name: '@styled/javascript/setup',
+      name: '@shined-eslint/javascript/setup',
       languageOptions: {
         ecmaVersion: 'latest',
         globals: parseEnv(env),
@@ -33,7 +33,7 @@ export function javascript(options: ConfigOptionsJavascript = {}): FlatConfigIte
 
   if (recommended) {
     config.push({
-      name: '@styled/javascript/recommended',
+      name: '@shined-eslint/javascript/recommended',
       files: [GLOB_JS, jsx ? GLOB_JSX : undefined].filter(Boolean) as string[],
       rules: js.configs.recommended.rules,
     })

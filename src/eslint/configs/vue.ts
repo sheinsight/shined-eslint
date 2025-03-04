@@ -25,7 +25,7 @@ export async function vue(options: ConfigOptionsVue = {}): Promise<FlatConfigIte
 
   const config: FlatConfigItem[] = [
     {
-      name: `@styled/vue${isVue3 ? '3' : '2'}/setup`,
+      name: `@shined-eslint/vue${isVue3 ? '3' : '2'}/setup`,
       files: [GLOB_VUE],
       plugins: {
         vue: vuePlugin,
@@ -45,7 +45,7 @@ export async function vue(options: ConfigOptionsVue = {}): Promise<FlatConfigIte
 
   if (recommended) {
     config.push({
-      name: `@styled/vue${isVue3 ? '3' : '2'}/recommended`,
+      name: `@shined-eslint/vue${isVue3 ? '3' : '2'}/recommended`,
       files: [GLOB_VUE],
       rules: {
         ...vuePlugin.configs[isVue3 ? 'vue3-recommended' : 'recommended'].rules,

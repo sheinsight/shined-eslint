@@ -247,7 +247,7 @@ export function getInternalPresets(
       )
 
   return {
-    name: `@styled/internal/${config.recommended ? 'common' : 'enforce-error'}`,
+    name: `@shined-eslint/internal/${config.recommended ? 'common' : 'enforce-error'}`,
     rules: rules,
   }
 }

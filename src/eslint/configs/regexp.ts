@@ -9,7 +9,7 @@ export async function regexp(options: OptionsRecommended = {}): Promise<FlatConf
 
   const config: FlatConfigItem[] = [
     {
-      name: '@styled/regexp/setup',
+      name: '@shined-eslint/regexp/setup',
       plugins: {
         regexp: regexpPlugin,
       },
@@ -18,7 +18,7 @@ export async function regexp(options: OptionsRecommended = {}): Promise<FlatConf
 
   if (recommended) {
     config.push({
-      name: '@styled/regexp/recommended',
+      name: '@shined-eslint/regexp/recommended',
       rules: regexpPlugin.configs.recommended.rules,
     })
   }
