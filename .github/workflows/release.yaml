@@ -33,10 +33,9 @@ jobs:
         run: pnpm run build
 
       - name: Publish package
-        run: pnpm publish --provenance --no-git-checks --access public
+        run: pnpm publish --no-git-checks --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
 
       - name: Generate changelog
         run: npx changelogithub
