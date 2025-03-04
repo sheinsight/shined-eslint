@@ -67,6 +67,7 @@ export type ConfigNames = ${configNames.map((c) => `'${c}'`).join(' | ')}
 `
 
 const targetPath = path.join(process.cwd(), 'src/@types/generated-types.ts')
+await fs.mkdir(path.dirname(targetPath), { recursive: true })
 await fs.writeFile(targetPath, dts, { encoding: 'utf8' })
 const ruleCount = configs.reduce((acc, c) => acc + Object.keys(c.rules || {}).length, 0)
 
