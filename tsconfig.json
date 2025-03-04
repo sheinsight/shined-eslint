@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "nodenext",
+    "esModuleInterop": true,
+    "strict": true,
+    "target": "ES2020",
+    "module": "nodenext",
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
+  }
+}
