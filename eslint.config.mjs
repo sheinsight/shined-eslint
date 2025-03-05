@@ -1,4 +1,4 @@
-import shinedESLint from '@shined/styled-eslint'
+import shinedESLint from '@shined/eslint'
 
 export default shinedESLint(
   // styled eslint 配置
