@@ -97,8 +97,8 @@ export function styled(
     recommended = true,
   } = options
 
-  // 是否禁用内部预设规则，可通过环境变量 `STYLED_NO_INTERNAL_RULE` 进行禁用
-  const disableInternalSpecific = !!process.env.STYLED_NO_INTERNAL_RULE
+  // 是否禁用内部预设规则，可通过环境变量 `SHINED_ESLINT_NO_INTERNAL_RULE` 进行禁用
+  const disableInternalSpecific = !!process.env.SHINED_ESLINT_NO_INTERNAL_RULE
 
   const composer = new FlatConfigComposer<TYPES.FlatConfigItem, TYPES.GenConfigNames>([])
 
@@ -106,7 +106,7 @@ export function styled(
   composer.append(ignores({ ignores: userIgnores }))
 
   // 设置 JavaScript 相关规则
-  composer.append(javascript({ globals, jsx: jsx }))
+  composer.append(javascript({ globals, jsx }))
 
   // 设置 TypeScript 相关规则
   const tsOptions = typeof enableTS === 'object' ? enableTS : {}
