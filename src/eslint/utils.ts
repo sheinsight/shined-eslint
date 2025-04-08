@@ -25,12 +25,12 @@ export async function combineFlatConfig(
 
 export function parseEnv(
   env: OptionsGlobals['globals'] = DEFAULT_GLOBALS,
-): Record<string, 'readonly' | 'writable' | false | true> {
-  let globalVars: Record<string, 'readonly' | 'writable' | false | true> = {}
+): Record<string, 'readonly' | 'writable' | boolean> {
+  let globalVars: Record<string, 'readonly' | 'writable' | boolean> = {}
 
   globalVars = Array.isArray(env)
     ? (Object.fromEntries(env.flatMap((key) => Object.entries(globals[key]))) as never)
-    : { ...globals[env] }
+    : { ...env }
 
   return globalVars
 }

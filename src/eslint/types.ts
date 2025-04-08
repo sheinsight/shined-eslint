@@ -61,7 +61,7 @@ export interface OptionsGlobals {
    *
    * @default ["browser", "node", "es2020"]
    */
-  globals?: Arrayable<GlobalsKeys>
+  globals?: GlobalsKeys[] | Record<string, 'readonly' | 'writable' | boolean>
 }
 
 export interface OptionsParserOptions<T extends Record<string, any>> {

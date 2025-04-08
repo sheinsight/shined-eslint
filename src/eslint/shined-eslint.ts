@@ -78,7 +78,7 @@ export interface ShinedESLintOptions
  *
  * @see TODO: 附上内部的规范链接
  */
-export function styled(
+export function shinedESLint(
   options: ShinedESLintOptions = {},
   ...extraConfigs: TYPES.FlatConfigItem[]
 ): FlatConfigComposer<TYPES.FlatConfigItem, TYPES.GenConfigNames> {

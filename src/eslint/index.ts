@@ -1,4 +1,4 @@
-export * from './styled.js'
+export * from './shined-eslint.js'
 export * from './types.js'
 export * from './utils.js'
 export * from './globs.js'
@@ -18,4 +18,4 @@ export * from './configs/typescript.js'
 export * from './configs/unicorn.js'
 export * from './configs/vue.js'
 
-export { styled as default } from './styled.js'
+export { shinedESLint as default } from './shined-eslint.js'
