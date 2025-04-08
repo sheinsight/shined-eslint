@@ -134,7 +134,7 @@ export function shinedESLint(
   }
 
   // 设置 unicorn 预设的相关规则
-  composer.append(unicorn({ recommended: extraPlugins.includes('unicorn') }))
+  composer.append(unicorn({ recommended: extraPlugins.includes('unicorn') && recommended }))
 
   // 设置 Node.js 相关规则
   const nodeOptions = typeof enableNodejs === 'object' ? enableNodejs : {}
