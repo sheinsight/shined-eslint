@@ -159,6 +159,7 @@ export function shinedESLint(
     // 设置内部统一的 ESLint 预设规则
     composer.append(
       getInternalPresets({
+        recommended,
         level: 'all',
         typescript: !!enableTS,
         react: !!enableReact,
@@ -193,6 +194,7 @@ export function shinedESLint(
   if (!disableInternalSpecific) {
     composer.append(
       getInternalPresets({
+        recommended,
         level: 'error',
         typescript: !!enableTS,
         react: !!enableReact,

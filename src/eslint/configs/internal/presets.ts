@@ -203,7 +203,8 @@ export function internalVue(_options?: OptionsInternalPreset): Record<string, Li
 
 export function getInternalPresets(
   options?: {
-    level?: 'all' | 'error'
+    recommended?: boolean
+    level?: string
     vue?: boolean
     react?: boolean
     node?: boolean
@@ -211,7 +212,8 @@ export function getInternalPresets(
   } & OptionsTypeScript,
 ): FlatConfigItem {
   const {
-    level = 'all',
+    recommended,
+    level,
     typescript = true,
     react = true,
     vue = false,
@@ -219,35 +221,28 @@ export function getInternalPresets(
     jsxRuntime = 'classic',
   } = options || {}
 
-  const config = {
-    recommended: level === 'all',
-    typescript: !!typescript,
-  }
+  const config = { recommended, typescript }
 
-  const internalEnforceErrorAllRules = {
+  const internalAllRules = {
     ...internalCommon(config),
-    ...(react
-      ? internalReact({
-          ...config,
-          enableJsxRuntime: jsxRuntime === 'classic',
-        })
-      : {}),
+    ...(react ? internalReact({ ...config, enableJsxRuntime: jsxRuntime === 'classic' }) : {}),
     ...(vue ? internalVue(config) : {}),
     ...(node ? internalNodejs(config) : {}),
   }
 
-  const rules = config.recommended
-    ? Object.fromEntries(Object.entries(internalEnforceErrorAllRules))
-    : Object.fromEntries(
-        Object.entries(internalEnforceErrorAllRules).filter(([_, value = '']) => {
-          const isStringMatch = !Array.isArray(value) && ['error', 2].includes(value)
-          const isArrayMatch = Array.isArray(value) && ['error', 2].includes(value[0])
-          return isStringMatch || isArrayMatch
-        }),
-      )
+  const rules =
+    level === 'error'
+      ? Object.fromEntries(
+          Object.entries(internalAllRules).filter(([_, value = '']) => {
+            const isStringMatch = !Array.isArray(value) && ['error', 2].includes(value)
+            const isArrayMatch = Array.isArray(value) && ['error', 2].includes(value[0])
+            return isStringMatch || isArrayMatch
+          }),
+        )
+      : Object.fromEntries(Object.entries(internalAllRules))
 
   return {
-    name: `@shined-eslint/internal/${config.recommended ? 'common' : 'enforce-error'}`,
+    name: `@shined-eslint/internal/${recommended ? 'recommended' : ''}-${level === 'error' ? 'enforce-error' : 'common'}`,
     rules: rules,
   }
 }
