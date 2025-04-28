@@ -194,7 +194,7 @@ export function shinedESLint(
   if (!disableInternalSpecific) {
     composer.append(
       getInternalPresets({
-        recommended,
+        recommended: false,
         level: 'error',
         typescript: !!enableTS,
         react: !!enableReact,
