@@ -2,7 +2,7 @@
 import { DEFAULT_GLOBALS, DEFAULT_GLOBALS_NODE } from './utils.js'
 import { FlatConfigComposer } from 'eslint-flat-config-utils'
 
-import { getInternalPresets } from './configs/internal/presets.js'
+import { internalPresets } from './configs/internal/presets.js'
 import { ignores } from './configs/ignores.js'
 import { imports } from './configs/imports.js'
 import { javascript } from './configs/javascript.js'
@@ -158,7 +158,7 @@ export function shinedESLint(
   if (!disableInternalSpecific) {
     // 设置内部统一的 ESLint 预设规则
     composer.append(
-      getInternalPresets({
+      internalPresets({
         recommended,
         level: 'all',
         typescript: !!enableTS,
@@ -193,7 +193,7 @@ export function shinedESLint(
   // 是否跳过强制开启报错的规则
   if (!disableInternalSpecific) {
     composer.append(
-      getInternalPresets({
+      internalPresets({
         recommended: false,
         level: 'error',
         typescript: !!enableTS,

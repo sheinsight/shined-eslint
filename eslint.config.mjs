@@ -1,4 +1,4 @@
-import shinedESLint from '@shined/eslint'
+import { shinedESLint } from '@shined/eslint'
 
 export default shinedESLint(
   // styled eslint 配置
@@ -8,7 +8,7 @@ export default shinedESLint(
       typeChecked: true, // 默认关闭以提高性能，这里设为 true 以开启类型检查,
       parserOptions: {
         projectService: {
-          allowDefaultProject: ['tsup.config.ts'],
+          // allowDefaultProject: ['tsup.config.ts'],
         },
       },
     },
