@@ -204,15 +204,3 @@ export function internalPresets(
     rules: rules,
   }
 }
-
-console.log(
-  internalPresets({
-    recommended: true,
-    level: 'all',
-    typescript: true,
-    react: !true,
-    node: true,
-    vue: false,
-    jsxRuntime: 'automatic',
-  }).rules,
-)
