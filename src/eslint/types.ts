@@ -10,7 +10,9 @@ export type GlobalsKeys = keyof typeof globals
 export type Arrayable<T> = T | T[]
 export type Awaitable<T> = T | Promise<T>
 
-export type FlatConfigItem = Omit<Linter.Config<Linter.RulesRecord & GenRules>, 'plugins'> & {
+export type ShinedESLintRules = Linter.RulesRecord & GenRules
+
+export type FlatConfigItem = Omit<Linter.Config<ShinedESLintRules>, 'plugins'> & {
   // 放开插件类型限制避免 TS 误报，因为很多插件的类型还没准备好
   plugins?: Record<string, any>
 }

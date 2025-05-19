@@ -1,4 +1,4 @@
-import type { FlatConfigItem, GenRules, OptionsRecommended, OptionsTypeScript } from '../../types.js'
+import type { FlatConfigItem, GenRules, OptionsRecommended, OptionsTypeScript, ShinedESLintRules } from '../../types.js'
 import type { Linter } from 'eslint'
 import type { ConfigOptionsReact } from '../react.js'
 
@@ -17,10 +17,10 @@ const noUnusedVarsConfig: Exclude<GenRules['@typescript-eslint/no-unused-vars'],
   },
 ]
 
-export function internalCommon(options?: OptionsInternalPreset): Record<string, Linter.RuleEntry> {
+export function internalCommon(options?: OptionsInternalPreset): ShinedESLintRules {
   const { recommended = true, typescript: enableTS = true } = options || {}
 
-  const rules: Record<string, Linter.RuleEntry> = {
+  const rules: ShinedESLintRules = {
     // ESLint Core
     'constructor-super': 'error',
     'for-direction': 'error',
@@ -55,7 +55,7 @@ export function internalCommon(options?: OptionsInternalPreset): Record<string, 
     'no-nonoctal-decimal-escape': 'error',
     'no-obj-calls': 'error',
     'no-prototype-builtins': 'error',
-    'no-redeclare': 'error',
+    'no-redeclare': ['error', { builtinGlobals: false }],
     'no-regex-spaces': 'error',
     'no-self-assign': 'error',
     'no-setter-return': 'error',
@@ -200,7 +200,19 @@ export function internalPresets(
       : Object.fromEntries(Object.entries(internalAllRules))
 
   return {
-    name: `@shined-eslint/internal/${recommended ? 'recommended' : ''}-${level === 'error' ? 'enforce-error' : 'common'}`,
+    name: `@shined-eslint/internal/${recommended ? 'recommended' : 'custom'}-${level === 'error' ? 'enforce-error' : 'common'}`,
     rules: rules,
   }
 }
+
+console.log(
+  internalPresets({
+    recommended: true,
+    level: 'all',
+    typescript: true,
+    react: !true,
+    node: true,
+    vue: false,
+    jsxRuntime: 'automatic',
+  }).rules,
+)
