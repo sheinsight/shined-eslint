@@ -41,9 +41,7 @@ const configs = await combineFlatConfig(
   internalNodejs(),
   internalReact(),
   internalVue(),
-  typescript({
-    typeChecked: true,
-  }),
+  typescript({ typeChecked: true }),
   unicorn(),
   vue(),
 )

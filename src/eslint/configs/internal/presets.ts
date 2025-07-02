@@ -17,7 +17,7 @@ const noUnusedVarsConfig: Exclude<GenRules['@typescript-eslint/no-unused-vars'],
   },
 ]
 
-export function internalCommon(options?: OptionsInternalPreset): ShinedESLintRules {
+export function internalCommon(options?: OptionsInternalPreset): Record<string, Linter.RuleEntry> {
   const { recommended = true, typescript: enableTS = true } = options || {}
 
   const rules: ShinedESLintRules = {
