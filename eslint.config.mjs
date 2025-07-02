@@ -1,7 +1,7 @@
 import { shinedESLint } from '@shined/eslint'
 
 export default shinedESLint(
-  // styled eslint 配置
+  // shined eslint 配置
   {
     recommended: true,
     typescript: {

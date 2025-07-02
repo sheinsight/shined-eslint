@@ -66,7 +66,7 @@ export interface ShinedESLintOptions
   /**
    * 额外开启的预设插件
    *
-   * 用于启用 Styled 内置但没有默认开启的 ESLint 插件，如 promise、regexp 等
+   * 用于启用 Shined ESLint 内置但没有默认开启的 ESLint 插件，如 promise、regexp 等
    *
    * @default []
    */
@@ -75,8 +75,6 @@ export interface ShinedESLintOptions
 
 /**
  * 创建 Shined ESLint 基础配置，对齐内部相关前端规范，内置支持 JS/TS/JSX/TSX，也支持 Node.js/Browser 等不同环境，可以通过传入配置动态切换
- *
- * @see TODO: 附上内部的规范链接
  */
 export function shinedESLint(
   options: ShinedESLintOptions = {},
