@@ -90,6 +90,10 @@ export function internalCommon(options?: OptionsInternalPreset): Record<string, 
 
     ...(enableTS && {
       // TypeScript
+
+      'no-redeclare': 'off', // TypeScript 会处理函数重载等重声明问题，禁用 ESLint 的 no-redeclare 规则
+      '@typescript-eslint/no-redeclare': ['error', { builtinGlobals: false }],
+
       '@typescript-eslint/no-duplicate-enum-values': 'error',
       '@typescript-eslint/no-extra-non-null-assertion': 'error',
       '@typescript-eslint/no-misused-new': 'error',

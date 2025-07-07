@@ -1,3 +1,8 @@
+function A(a: number, b: number): number
+function A(a: number | string, b: number | string): string | number {
+  return +a + +b
+}
+
 export function main() {
   new Promise(async (resolve, reject) => {
     var a = `s`
