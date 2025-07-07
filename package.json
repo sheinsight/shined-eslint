@@ -2,7 +2,7 @@
   "name": "@shined/eslint",
   "type": "module",
   "version": "1.0.0",
-  "packageManager": "pnpm@10.12.1",
+  "packageManager": "pnpm@10.12.4",
   "description": "集成 ESLint 配置，统一项目代码的基础样式风格",
   "license": "MIT",
   "files": [
