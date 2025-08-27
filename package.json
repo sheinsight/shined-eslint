@@ -15,6 +15,10 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./eslint-rules": {
+      "import": "./dist/eslint-rules.js",
+      "require": "./dist/eslint-rules.cjs"
+    },
     "./package.json": "./package.json"
   },
   "repository": {
