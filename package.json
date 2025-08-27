@@ -15,9 +15,9 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./eslint-rules": {
-      "import": "./dist/eslint-rules.js",
-      "require": "./dist/eslint-rules.cjs"
+    "./presets": {
+      "import": "./dist/presets.js",
+      "require": "./dist/presets.cjs"
     },
     "./package.json": "./package.json"
   },
